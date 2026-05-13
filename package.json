@@ -1,0 +1,19 @@
+{
+  "name": "shopkart-ecommerce",
+  "version": "1.0.0",
+  "description": "Modern e-commerce shopping cart application",
+  "type": "module",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server ."
+  },
+  "keywords": [
+    "ecommerce",
+    "shopping-cart",
+    "javascript",
+    "vanilla-js"
+  ],
+  "author": "Amaresh Kumar",
+  "license": "MIT"
+}

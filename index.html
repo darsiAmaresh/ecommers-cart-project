@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopKart - Your Online Store</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <div class="logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>ShopKart</span>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search products..."
+                        class="search-input"
+                    >
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="nav-actions">
+                    <!-- User Profile -->
+                    <div class="user-profile">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="userName">Guest</span>
+                        <span class="membership-badge" id="membershipBadge">Regular</span>
+                    </div>
+                    
+                    <!-- Cart Icon -->
+                    <button class="cart-icon-btn" id="cartToggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3>Categories</h3>
+                    <div id="categoryFilters" class="filter-group">
+                        <!-- Dynamic category filters -->
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3>Price Range</h3>
+                    <div class="price-range">
+                        <input type="range" id="priceRange" min="0" max="1000" value="1000">
+                        <div class="price-labels">
+                            <span>₹0</span>
+                            <span id="maxPrice">₹1000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3>Rating</h3>
+                    <div class="rating-filter">
+                        <label>
+                            <input type="radio" name="rating" value="all" checked>
+                            All Ratings
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="4">
+                            ⭐ 4+ Stars
+                        </label>
+                        <label>
+                            <input type="radio" name="rating" value="4.5">
+                            ⭐ 4.5+ Stars
+                        </label>
+                    </div>
+                </div>
+                
+                <button class="btn-reset" id="resetFilters">Reset Filters</button>
+            </aside>
+
+            <!-- Products Grid -->
+            <section class="products-section">
+                <!-- Products Header -->
+                <div class="products-header">
+                    <h2>All Products</h2>
+                    <div class="sort-options">
+                        <select id="sortSelect" class="sort-select">
+                            <option value="default">Sort By</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="name">Name: A-Z</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div id="productsGrid" class="products-grid">
+                    <!-- Dynamic product cards will be inserted here -->
+                </div>
+                
+                <!-- No Results Message -->
+                <div id="noResults" class="no-results" style="display: none;">
+                    <i class="fas fa-box-open"></i>
+                    <h3>No Products Found</h3>
+                    <p>Try adjusting your filters</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>
+                <i class="fas fa-shopping-cart"></i>
+                Shopping Cart
+            </h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-content" id="cartContent">
+            <!-- Cart items will be inserted here -->
+            <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+                <small>Add some products to get started!</small>
+            </div>
+        </div>
+        
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <!-- Coupon Section -->
+            <div class="coupon-section">
+                <input 
+                    type="text" 
+                    id="couponInput" 
+                    placeholder="Enter coupon code"
+                    class="coupon-input"
+                >
+                <button class="btn-apply-coupon" id="applyCouponBtn">Apply</button>
+            </div>
+            
+            <!-- Price Breakdown -->
+            <div class="price-breakdown">
+                <div class="price-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotalAmount">₹0.00</span>
+                </div>
+                <div class="price-row">
+                    <span>Tax (18%):</span>
+                    <span id="taxAmount">₹0.00</span>
+                </div>
+                <div class="price-row">
+                    <span>Shipping:</span>
+                    <span id="shippingAmount">₹0.00</span>
+                </div>
+                <div class="price-row discount" id="discountRow" style="display: none;">
+                    <span>Discount:</span>
+                    <span id="discountAmount">-₹0.00</span>
+                </div>
+                <div class="price-row total">
+                    <span>Total:</span>
+                    <span id="totalAmount">₹0.00</span>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="cart-actions">
+                <button class="btn btn-secondary" id="clearCartBtn">
+                    <i class="fas fa-trash"></i>
+                    Clear Cart
+                </button>
+                <button class="btn btn-primary" id="checkoutBtn">
+                    <i class="fas fa-credit-card"></i>
+                    Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content checkout-modal">
+            <div class="modal-header">
+                <h2>Checkout</h2>
+                <button class="close-modal" id="closeCheckout">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkoutItems" class="checkout-items">
+                        <!-- Items list -->
+                    </div>
+                    
+                    <div class="checkout-totals">
+                        <div class="checkout-row">
+                            <span>Subtotal:</span>
+                            <span id="checkoutSubtotal">₹0.00</span>
+                        </div>
+                        <div class="checkout-row">
+                            <span>Tax:</span>
+                            <span id="checkoutTax">₹0.00</span>
+                        </div>
+                        <div class="checkout-row">
+                            <span>Shipping:</span>
+                            <span id="checkoutShipping">₹0.00</span>
+                        </div>
+                        <div class="checkout-row total">
+                            <span>Total:</span>
+                            <span id="checkoutTotal">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Customer Details -->
+                <div class="customer-details">
+                    <h3>Delivery Information</h3>
+                    <div id="customerInfo" class="customer-info">
+                        <!-- Customer information -->
+                    </div>
+                    
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="card" checked>
+                            <i class="fas fa-credit-card"></i>
+                            Credit/Debit Card
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="upi">
+                            <i class="fas fa-mobile-alt"></i>
+                            UPI
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Cash on Delivery
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelCheckout">Cancel</button>
+                <button class="btn btn-primary" id="confirmOrder">
+                    <i class="fas fa-check"></i>
+                    Place Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Your order ID: <strong id="orderId"></strong></p>
+            <p>Estimated delivery: <strong id="deliveryDate"></strong></p>
+            <button class="btn btn-primary" id="closeSuccess">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
