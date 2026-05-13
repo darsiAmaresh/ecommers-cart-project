@@ -1,7 +1,7 @@
 // Customer Data
 export const customer = {
   id: "CUST001",
-  name: "Amaresh Kumar",
+  name: "Amaresh yadav",
   email: "amaresh@example.com",
   phone: "+91 98765 43210",
   membershipType: "premium",
