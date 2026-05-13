@@ -46,5 +46,11 @@ A modern, feature-rich shopping cart application built with **vanilla JavaScript
 
 1. **Clone or download the project**
    ```bash
-   git clone https://github.com/yourusername/shopkart.git
-   cd shopkart
+   git clone https://github.com/darsiAmaresh/ecommers-cart-project.git
+   cd ecommers-cart-project
+   ```
+
+2. Open the project folder in your browser or local development server.
+
+3. Start building and enjoy the shopping cart experience.
+
