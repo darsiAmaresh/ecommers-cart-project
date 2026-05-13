@@ -119,7 +119,7 @@ export const products = [
     rating: 4.5,
     reviews: 201,
     icon: "fa-square"
-  }
+  },
   {
     id: 11,
     name: "Bluetooth Speaker",
