@@ -120,4 +120,124 @@ export const products = [
     reviews: 201,
     icon: "fa-square"
   }
+  {
+    id: 11,
+    name: "Bluetooth Speaker",
+    price: 79.99,
+    category: "Electronics",
+    inStock: true,
+    description: "Portable waterproof Bluetooth speaker",
+    brand: "SoundWave",
+    rating: 4.5,
+    reviews: 234,
+    icon: "fa-volume-up"
+  },
+  {
+    id: 12,
+    name: "Smart Watch",
+    price: 199.99,
+    category: "Electronics",
+    inStock: true,
+    description: "Fitness smartwatch with heart rate monitor",
+    brand: "FitTech",
+    rating: 4.6,
+    reviews: 456,
+    icon: "fa-clock"
+  },
+  {
+    id: 13,
+    name: "Gaming Chair",
+    price: 299.99,
+    category: "Furniture",
+    inStock: true,
+    description: "Ergonomic gaming chair with RGB lighting",
+    brand: "GameSeat",
+    rating: 4.7,
+    reviews: 189,
+    icon: "fa-chair"
+  },
+  {
+    id: 14,
+    name: "4K Webcam",
+    price: 149.99,
+    category: "Electronics",
+    inStock: false,
+    description: "4K ultra HD webcam with auto-focus",
+    brand: "ViewMax",
+    rating: 4.4,
+    reviews: 234,
+    icon: "fa-video"
+  },
+  {
+    id: 15,
+    name: "Portable SSD",
+    price: 89.99,
+    category: "Electronics",
+    inStock: true,
+    description: "1TB portable SSD with USB-C",
+    brand: "DataPro",
+    rating: 4.8,
+    reviews: 567,
+    icon: "fa-hdd"
+  },
+  {
+    id: 16,
+    name: "Phone Stand",
+    price: 19.99,
+    category: "Accessories",
+    inStock: true,
+    description: "Adjustable aluminum phone stand",
+    brand: "StandMaster",
+    rating: 4.3,
+    reviews: 123,
+    icon: "fa-mobile-alt"
+  },
+  {
+    id: 17,
+    name: "Cable Organizer",
+    price: 14.99,
+    category: "Accessories",
+    inStock: true,
+    description: "Magnetic cable management system",
+    brand: "OrganiTech",
+    rating: 4.2,
+    reviews: 234,
+    icon: "fa-plug"
+  },
+  {
+    id: 18,
+    name: "Standing Desk",
+    price: 449.99,
+    category: "Furniture",
+    inStock: true,
+    description: "Electric height-adjustable standing desk",
+    brand: "DeskPro",
+    rating: 4.9,
+    reviews: 345,
+    icon: "fa-table"
+  },
+  {
+    id: 19,
+    name: "Microphone",
+    price: 129.99,
+    category: "Electronics",
+    inStock: true,
+    description: "USB condenser microphone for streaming",
+    brand: "AudioMax",
+    rating: 4.7,
+    reviews: 456,
+    icon: "fa-microphone"
+  },
+  {
+    id: 20,
+    name: "Monitor Arm",
+    price: 79.99,
+    category: "Accessories",
+    inStock: true,
+    description: "Dual monitor desk mount arm",
+    brand: "MountPro",
+    rating: 4.5,
+    reviews: 234,
+    icon: "fa-desktop"
+  }
 ];
